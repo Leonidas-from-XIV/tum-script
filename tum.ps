@@ -4,16 +4,16 @@
 %%EndComments
 
 % the color (RGB) of the lines
-/tumcolor [ 0 122 195 ] def
+/TumColor [ 0 122 195 ] def
 % divide each color by 255, since PS uses floats to represent colors
-/linecolor { tumcolor { 255 div } forall } def
-/radius 54 def
+/LineColor { TumColor { 255 div } forall } def
+/Radius 54 def
 
 % small helper function (the name is from Factor)
 /. { pstack } def
 
 % ( radius hole-center hole-degrees -- )
-/nonCompleteCircle
+/noncompletecircle
  { %def
 	% divide hole-degrees by two
 	2 div
@@ -43,7 +43,7 @@
 /in-logo
  { %def
 	% circle, radius 54, hole on top (90°), 15° hole
-	radius 90 15 nonCompleteCircle
+	Radius 90 15 noncompletecircle
 	% move down a bit
 	0 -45 moveto
 	% draw the line straight up
@@ -53,7 +53,7 @@
  } def
 
 % (radius angle) -- (x y)
-/angle-coords
+/anglecoords
  { %def
 	% put args in an array
 	2 array astore
@@ -75,37 +75,37 @@
 /ar-logo
  { %def
 	% radius 54, no hole actually
-	radius 90 0 nonCompleteCircle
+	Radius 90 0 noncompletecircle
 	% go to left, lower end of 'A'
-	radius 230 angle-coords moveto
+	Radius 230 anglecoords moveto
 	% draw to top of 'A'
-	radius 90 angle-coords lineto
+	Radius 90 anglecoords lineto
 	% draw to lower right end of 'A'
-	radius 310 angle-coords lineto
+	Radius 310 anglecoords lineto
 	stroke
 	% draw the bar through the A shape
-	radius 200 angle-coords moveto
-	radius 340 angle-coords lineto
+	Radius 200 anglecoords moveto
+	Radius 340 anglecoords lineto
 	stroke
  } def
 
 /edu-logo 
- { % def
+ { %def
 	% draw the upper arc
-	0 0 radius 352 165 arc
-	radius 352 angle-coords moveto
+	0 0 Radius 352 165 arc
+	Radius 352 anglecoords moveto
 	% draw the lower bar, relative to the current point
 	-60 0 rlineto stroke
 	
 	% draw the lower arc
-	0 0 radius 172 345 arc
-	radius 172 angle-coords moveto
+	0 0 Radius 172 345 arc
+	Radius 172 anglecoords moveto
 	% draw the lower bar & stroke path
 	60 0 rlineto stroke
  } def
 
 % set the color of the strokes
-linecolor setrgbcolor
+LineColor setrgbcolor
 
 % transform the coordinates
 300 500 translate
