@@ -4,9 +4,9 @@
 %%EndComments
 
 % the color (RGB) of the lines
-/TumColor [ 0 122 195 ] def
+/TumLightColor [ 0 122 195 ] def
 % divide each color by 255, since PS uses floats to represent colors
-/LineColor { TumColor { 255 div } forall } def
+/LineColor { TumLightColor { 255 div } forall } def
 /Radius 54 def
 
 % small helper function (the name is from Factor)
@@ -151,22 +151,37 @@
 	Radius completecircle
 	% save the scale and rotation
 	gsave
-	% draw vertical orbital
-        0.33 1 scale
-	Radius completecircle
+		% draw vertical orbital
+	        0.33 1 scale
+		Radius completecircle
 	grestore
 	% draw the topleft-bottomright orbital
 	gsave
-	60 rotate
-	0.33 1 scale
-	Radius completecircle
+		60 rotate
+		0.33 1 scale
+		Radius completecircle
         grestore
 	% draw the bottomleft-topright orbital
 	gsave
-	-60 rotate
-	0.33 1 scale
-	Radius completecircle
+		-60 rotate
+		0.33 1 scale
+		Radius completecircle
         grestore
+ } def
+
+/bv-logo
+ { %def
+	% draw the circle and the straight line
+	Radius completecircle
+	Radius 170 anglecoords moveto
+	Radius 10 anglecoords lineto
+	stroke
+	% draw the lower arc, scaled to be 200% width
+	gsave
+		1 0.50 scale
+		% x-offset y-offset radius start-angle stop-angle
+		0 -70 Radius 20 add 45 135 arc stroke
+	grestore
  } def
 
 % set the color of the strokes
