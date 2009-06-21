@@ -91,11 +91,16 @@
 
 /edu-logo 
  { % def
-	0 0 radius 350 170 arc %stroke
-	radius 350 angle-coords moveto
+	% draw the upper arc
+	0 0 radius 352 165 arc
+	radius 352 angle-coords moveto
+	% draw the lower bar, relative to the current point
 	-60 0 rlineto stroke
-	0 0 radius 180 340 arc %stroke
-	radius 180 angle-coords moveto
+	
+	% draw the lower arc
+	0 0 radius 172 345 arc
+	radius 172 angle-coords moveto
+	% draw the lower bar & stroke path
 	60 0 rlineto stroke
  } def
 
@@ -104,7 +109,5 @@ linecolor setrgbcolor
 
 % transform the coordinates
 300 500 translate
-% draw the logo
-%in-logo
-%ar-logo
-%edu-logo
+% draw the logo by calling the desired function
+% (happens in subfiles now)
