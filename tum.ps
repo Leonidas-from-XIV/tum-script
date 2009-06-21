@@ -104,6 +104,20 @@
 	60 0 rlineto stroke
  } def
 
+/wi-logo
+ { %def
+	% draw surrounding circle with the hole
+	Radius 33 115 noncompletecircle
+	% move to angle 200 and a bit outside the circle
+	Radius 10 add 200 anglecoords moveto
+	% draw the three line segments
+	40 35 rlineto
+	20 -15 rlineto
+	55 50 rlineto
+	% stroke the path
+	stroke
+ } def
+
 % set the color of the strokes
 LineColor setrgbcolor
 
