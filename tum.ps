@@ -145,9 +145,28 @@
 
 /ph-logo
  { %def
+	% gsave, grestore have to be symmetric, 
+	% grestore 2 times in a row does not work
+	% draw the surrounding circle
 	Radius completecircle
+	% save the scale and rotation
+	gsave
+	% draw vertical orbital
         0.33 1 scale
 	Radius completecircle
+	grestore
+	% draw the topleft-bottomright orbital
+	gsave
+	60 rotate
+	0.33 1 scale
+	Radius completecircle
+        grestore
+	% draw the bottomleft-topright orbital
+	gsave
+	-60 rotate
+	0.33 1 scale
+	Radius completecircle
+        grestore
  } def
 
 % set the color of the strokes
