@@ -197,6 +197,23 @@
 	 60 0 rlineto stroke
  } def
 
+/ch-logo
+ { %def
+	 Radius 90 24 noncompletecircle
+	 % right part
+	 Radius 78 anglecoords moveto
+	 -3 -7 rlineto
+	 0 -20 rlineto
+	 Radius 315 anglecoords lineto
+	 stroke
+	 % left part
+	 Radius 102 anglecoords moveto
+	 3 -7 rlineto
+	 0 -20 rlineto
+	 Radius 225 anglecoords lineto
+	 stroke
+ } def
+
 % set the color of the strokes
 LineColor setrgbcolor
 
