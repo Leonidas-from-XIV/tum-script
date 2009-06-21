@@ -184,6 +184,19 @@
 	grestore
  } def
 
+/sp-logo
+ { %def
+	 Radius 5 sub 330 170 noncompletecircle
+	 % lower semicircle with line
+	 0 0 Radius 270 330 arc stroke
+	 Radius 270 anglecoords moveto
+	 -70 0 rlineto stroke
+	 % upper semicircle with line
+	 0 0 Radius 90 170 arc stroke
+	 Radius 90 anglecoords moveto
+	 60 0 rlineto stroke
+ } def
+
 % set the color of the strokes
 LineColor setrgbcolor
 
