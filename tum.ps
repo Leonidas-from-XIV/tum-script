@@ -33,6 +33,12 @@
 	3 npop
 } def
 
+% (radius -- )
+/completecircle
+ { %def
+	0 0 noncompletecircle
+ } def
+
 % removes a number of items from the stack
 % ( n -- )
 /npop
@@ -75,7 +81,7 @@
 /ar-logo
  { %def
 	% radius 54, no hole actually
-	Radius 90 0 noncompletecircle
+	Radius completecircle
 	% go to left, lower end of 'A'
 	Radius 230 anglecoords moveto
 	% draw to top of 'A'
@@ -120,7 +126,7 @@
 
 /ma-logo
  { %def
-	Radius 90 0 noncompletecircle
+	Radius completecircle
 	% triangle, start with top
 	Radius 90 anglecoords moveto
 	Radius 330 anglecoords lineto
@@ -135,6 +141,13 @@
 	Radius 90 anglecoords lineto
 	% back at top, stroke path
 	stroke
+ } def
+
+/ph-logo
+ { %def
+	Radius completecircle
+        0.33 1 scale
+	Radius completecircle
  } def
 
 % set the color of the strokes
