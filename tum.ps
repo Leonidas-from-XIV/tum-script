@@ -118,6 +118,25 @@
 	stroke
  } def
 
+/ma-logo
+ { %def
+	Radius 90 0 noncompletecircle
+	% triangle, start with top
+	Radius 90 anglecoords moveto
+	Radius 330 anglecoords lineto
+	Radius 210 anglecoords lineto
+	Radius 90 anglecoords lineto
+	% now back at top, continue with hexagon
+	Radius 30 anglecoords lineto
+	Radius 330 anglecoords lineto
+	Radius 270 anglecoords lineto
+	Radius 210 anglecoords lineto
+	Radius 150 anglecoords lineto
+	Radius 90 anglecoords lineto
+	% back at top, stroke path
+	stroke
+ } def
+
 % set the color of the strokes
 LineColor setrgbcolor
 
