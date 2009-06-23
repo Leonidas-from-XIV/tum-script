@@ -228,6 +228,19 @@
 	 % end point: on the circle
 	 Radius 55 anglecoords
 	 curveto stroke
+	 % middle line
+	 Radius 270 anglecoords moveto
+	 0 Radius 2 mul 6 add rlineto stroke
+	 % draw left wing
+	 Radius 260 anglecoords moveto
+	 0 45 rlineto
+	 % first control
+	 18 45
+	 % second
+	 18 45
+	 % end point
+	 Radius 125 anglecoords
+	 curveto stroke
  } def
 
 % set the color of the strokes
