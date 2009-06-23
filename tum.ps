@@ -214,6 +214,21 @@
 	 stroke
  } def
 
+/wzw-logo
+ {
+	 % draw the circle
+	 Radius 90 70 noncompletecircle
+	 % starting point
+	 0 0 moveto
+	 % first control point
+	 100 75
+	 % second control point
+	 120 300
+	 % end point: on the circle
+	 Radius 55 anglecoords
+	 curveto stroke
+ } def
+
 % set the color of the strokes
 LineColor setrgbcolor
 
