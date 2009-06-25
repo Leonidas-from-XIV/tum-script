@@ -218,8 +218,10 @@
  {
 	 % draw the circle
 	 Radius 90 70 noncompletecircle
+	 
+	 % right wing
 	 % starting point
-	 Radius 280 anglecoords moveto
+	 Radius 275 anglecoords moveto
 	 0 45 rlineto
 	 % first control point
 	 30 60 anglecoords
@@ -228,15 +230,17 @@
 	 % end point: on the circle
 	 Radius 55 anglecoords
 	 curveto stroke
+	 
 	 % middle line
 	 Radius 270 anglecoords moveto
-	 0 Radius 2 mul 6 add rlineto stroke
+	 0 Radius 2 mul 2 add rlineto stroke
+	 
 	 % draw left wing
-	 Radius 260 anglecoords moveto
+	 Radius 265 anglecoords moveto
 	 0 45 rlineto
-	 % first control
+	 % first control point
 	 30 120 anglecoords
-	 % second
+	 % second control point
 	 30 120 anglecoords
 	 % end point
 	 Radius 125 anglecoords
