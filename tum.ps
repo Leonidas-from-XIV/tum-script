@@ -247,6 +247,19 @@
 	 curveto stroke
  } def
 
+/med-logo
+ { %def
+	 % semicircle
+	 Radius 90 160 noncompletecircle
+	 % lower line segment
+	 /lowpoint { Radius 270 anglecoords } def
+	 
+	 lowpoint 20 sub moveto
+	 0 20 rlineto
+	 stroke
+	 
+ } def
+
 % set the color of the strokes
 LineColor setrgbcolor
 
