@@ -5,6 +5,8 @@
 
 % the color (RGB) of the lines
 /TumLightColor [ 0 122 195 ] def
+% the color of debug drawings
+/ControlColor { [ 143 143 143 ] { 255 div } forall } def
 % divide each color by 255, since PS uses floats to represent colors
 /LineColor { TumLightColor { 255 div } forall } def
 /Radius 54 def
@@ -247,6 +249,36 @@
 	 curveto stroke
  } def
 
+% ( x1 y1 x2 y2 x3 y3 -- )
+/bezierto
+ { %def
+	 % collect all args
+	 /endy exch def
+	 /endx exch def
+	 /cont2y exch def
+	 /cont2x exch def
+	 /cont1y exch def
+	 /cont1x exch def
+         currentpoint
+	 /orgy exch def
+	 /orgx exch def
+	 % got all points, fine, draw control lines
+	 gsave
+		 % make dashed output, in some other color
+	 	 [ 7 3 ] 0 setdash
+		 ControlColor setrgbcolor
+		 % draw first control line
+		 cont1x cont1y lineto
+		 % draw second control line
+		 cont2x cont2y moveto
+        	 endx endy lineto
+		 stroke
+	 grestore
+ 	 % draw the actual curve
+	 cont1x cont1y cont2x cont2y endx endy curveto
+	 stroke
+ } def
+
 /med-logo
  { %def
 	 % semicircle
@@ -255,8 +287,12 @@
 	 /lowpoint { Radius 270 anglecoords } def
 	 
 	 lowpoint 20 sub moveto
-	 0 20 rlineto
-	 stroke
+	 %0 20 rlineto
+	 %stroke
+         10 10
+	 30 45
+	 230 43
+	 bezierto stroke
  } def
 
 % set the color of the strokes
