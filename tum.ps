@@ -13,7 +13,7 @@
 /. { pstack } def
 
 % ( radius hole-center hole-degrees -- )
-/noncompletecircle
+/semicircle
  { %def
 	% divide hole-degrees by two
 	2 div
@@ -36,7 +36,7 @@
 % (radius -- )
 /completecircle
  { %def
-	0 0 noncompletecircle
+	0 0 semicircle
  } def
 
 % removes a number of items from the stack
@@ -49,7 +49,7 @@
 /in-logo
  { %def
 	% circle, radius 54, hole on top (90°), 15° hole
-	Radius 90 15 noncompletecircle
+	Radius 90 15 semicircle
 	% move down a bit
 	0 -45 moveto
 	% draw the line straight up
@@ -113,7 +113,7 @@
 /wi-logo
  { %def
 	% draw surrounding circle with the hole
-	Radius 33 115 noncompletecircle
+	Radius 33 115 semicircle
 	% move to angle 200 and a bit outside the circle
 	Radius 10 add 200 anglecoords moveto
 	% draw the three line segments
@@ -186,7 +186,7 @@
 
 /sp-logo
  { %def
-	 Radius 5 sub 330 170 noncompletecircle
+	 Radius 5 sub 330 170 semicircle
 	 % lower semicircle with line
 	 0 0 Radius 270 330 arc stroke
 	 Radius 270 anglecoords moveto
@@ -199,7 +199,7 @@
 
 /ch-logo
  { %def
-	 Radius 90 24 noncompletecircle
+	 Radius 90 24 semicircle
 	 % right part
 	 Radius 78 anglecoords moveto
 	 -3 -7 rlineto
@@ -217,7 +217,7 @@
 /wzw-logo
  {
 	 % draw the circle
-	 Radius 90 70 noncompletecircle
+	 Radius 90 70 semicircle
 	 
 	 % right wing
 	 % starting point
@@ -250,14 +250,13 @@
 /med-logo
  { %def
 	 % semicircle
-	 Radius 90 160 noncompletecircle
+	 Radius 90 160 semicircle
 	 % lower line segment
 	 /lowpoint { Radius 270 anglecoords } def
 	 
 	 lowpoint 20 sub moveto
 	 0 20 rlineto
 	 stroke
-	 
  } def
 
 % set the color of the strokes
