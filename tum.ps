@@ -288,9 +288,17 @@
 	 
 	 lowpoint 20 sub moveto
 	 0 20 rlineto
+	 % spline 1
          -10 -32
 	 -10 -21
 	 0 -10
+	 bezierto
+	 stroke
+	 % spline 2
+	 0 -10 moveto
+	 12 -2.5
+	 12 12.5
+	 0 20
 	 bezierto
 	 stroke
  } def
