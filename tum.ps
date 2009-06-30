@@ -287,39 +287,39 @@
 
 /med-logo
 { %def
- % semicircle
- Radius 90 160 semicircle
- % lower line segment
- /lowpoint { Radius 270 anglecoords } def
- 
- lowpoint 20 sub moveto
- 0 20 rlineto
- % spline 1
- -10 -32
- -10 -21
- 0 -10
- bezierto
- % spline 2
- 12 -2.5
- 12 12.5
- 0 20
- bezierto
- % spline 3
- -12 30
- -30 55
- 0 60
- bezierto
- % spline 4
- % coordinates calculated using a rotation matrix:
- % / cos(α)  -sin(α) \ / x \
- % \ sin(α)   cos(α) / \ y /
- % with α = -12°
- % and both control points 5 points above the baseline
- 7.15 63.59
- 19.37 60.99
- 24.45 54.80
- bezierto
- stroke
+	% semicircle
+	Radius 90 160 semicircle
+	% lower line segment
+	/lowpoint { Radius 270 anglecoords } def
+
+	lowpoint 20 sub moveto
+	0 20 rlineto
+	% curve 1
+	-10 -32
+	-10 -21
+	0 -10
+	bezierto
+	% curve 2
+	12 -2.5
+	12 12.5
+	0 20
+	bezierto
+	% curve 3
+	-12 30
+	-30 55
+	0 60
+	bezierto
+	% curve 4
+	% coordinates calculated using a rotation matrix:
+	% / cos(α)  -sin(α) \ / x \
+	% \ sin(α)   cos(α) / \ y /
+	% with α = -12°
+	% and both control points 5 points above the baseline
+	7.15 63.59
+	19.37 60.99
+	24.45 54.80
+	bezierto
+	stroke
 } def
 
 % set the color of the strokes
