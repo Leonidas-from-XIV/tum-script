@@ -276,7 +276,8 @@
  grestore
  % draw the actual curve
  cont1x cont1y cont2x cont2y endx endy curveto
- stroke
+ %stroke
+ %endx endy moveto
 } def
 
 /med-logo
@@ -293,28 +294,22 @@
  -10 -21
  0 -10
  bezierto
- stroke
  % spline 2
- 0 -10 moveto
  12 -2.5
  12 12.5
  0 20
  bezierto
- stroke
  % spline 3
- 0 20 moveto
  -12 30
  -30 55
  0 60
  bezierto
- stroke
  % spline 4
  % coordinates calculated using a rotation matrix:
  % / cos(α)  -sin(α) \ / x \
  % \ sin(α)   cos(α) / \ y /
  % with α = -12°
  % and both control points 5 points above the baseline
- 0 60 moveto
  7.15 63.59
  19.37 60.99
  24.45 54.80
