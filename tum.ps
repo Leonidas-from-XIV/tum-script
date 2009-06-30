@@ -278,6 +278,9 @@
  cont1x cont1y cont2x cont2y endx endy curveto
 } def
 
+% calculate a rotation matrix
+% / cos(α)  -sin(α) \
+% \ sin(α)   cos(α) /
 % (angle -- array)
 /rotationmatrix 
  { %def
@@ -295,6 +298,7 @@
 	 4 array astore
  } def
 
+% multiply a matrix with a vector
 % (matrix v w -- x y)
 /matrixmul
  { %def
@@ -309,6 +313,7 @@
 	 c v mul d w mul add
  } def
 
+% add two points component-wise together
 % (ox oy px py -- x y)
 /offset
  { %def
@@ -320,8 +325,18 @@
 /med-logo
 { %def
 	% some definitions
+	% rotate the last curve clockwise
 	/matrix -12 rotationmatrix def
+	% endpoint of last curve
 	/offpoint { 0 60 } def
+	% multiply the matrix with x y and anjust the result to the offset
+	% (x y -- v w)
+	/rotatedpoint 
+	 { %def 
+	 	matrix 
+ 	 	3 1 roll
+ 	 	matrixmul offpoint offset
+         } def
 
 	% semicircle
 	Radius 90 160 semicircle
@@ -346,19 +361,11 @@
 	offpoint
 	bezierto
 	% curve 4
-	% coordinates calculated using a rotation matrix:
-	% / cos(α)  -sin(α) \ / x \
-	% \ sin(α)   cos(α) / \ y /
-	% with α = -12°
 	% and both control points 5 points above the baseline
-	%7.15 63.59
-	%19.37 60.99
-	%24.45 54.80
-	%bezierto
 
-	matrix 6.25 10 matrixmul offpoint offset
-	matrix 18.75 10 matrixmul offpoint offset
-	matrix 25 0 matrixmul offpoint offset
+	6.25 10 rotatedpoint
+	18.75 10 rotatedpoint
+	25 0 rotatedpoint
 	bezierto
 
 	stroke
