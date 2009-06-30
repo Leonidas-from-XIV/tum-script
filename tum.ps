@@ -322,6 +322,11 @@
 	 exch
  } def
 
+% which bezier curve operator to use?
+% choices: curveto (default) bezierto (debug/visualize)
+/curveop { curveto } def
+%/curveop { bezierto } def
+
 /med-logo
 { %def
 	% some definitions
@@ -349,25 +354,24 @@
 	-10 -32
 	-10 -21
 	0 -10
-	bezierto
+	curveop
 	% curve 2
 	12 -2.5
 	12 12.5
 	0 20
-	bezierto
+	curveop
 	% curve 3
 	-12 30
 	-30 55
 	offpoint
-	bezierto
+	curveop
 	% curve 4
-	% and both control points 5 points above the baseline
-
-	6.25 10 rotatedpoint
-	18.75 10 rotatedpoint
+	% both control points 5 point above the baseline
+	6.25 5 rotatedpoint
+	18.75 5 rotatedpoint
 	25 0 rotatedpoint
-	bezierto
-
+	curveop
+        % finally, draw the path
 	stroke
 } def
 
