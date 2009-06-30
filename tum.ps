@@ -281,9 +281,27 @@
 % (angle -- array)
 /rotationmatrix 
  { %def
-	 % insert code
- } def
+	 % calculate the d value
+	 dup
+	 cos
+	 % got d value, goto c
+	 exch
+	 dup
+	 sin
+	 -1
+	 mul
+	 % got c value, goto b
+	 exch
+	 dup
+	 sin
+	 % got b value, goto a
+	 exch
+	 cos
+	 % a value, that's it
 
+	 % package them into a nifty array
+	 4 array astore
+ } def
 
 /med-logo
 { %def
