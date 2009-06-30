@@ -255,66 +255,72 @@
 	 % collect all args
 	 /endy exch def
 	 /endx exch def
-	 /cont2y exch def
-	 /cont2x exch def
-	 /cont1y exch def
-	 /cont1x exch def
-         currentpoint
-	 /orgy exch def
-	 /orgx exch def
-	 % got all points, fine, draw control lines
-	 gsave
-		 % make dashed output, in some other color
-	 	 [ 7 3 ] 0 setdash
-		 ControlColor setrgbcolor
-		 % draw first control line
-		 cont1x cont1y lineto
-		 % draw second control line
-		 cont2x cont2y moveto
-        	 endx endy lineto
-		 stroke
-	 grestore
- 	 % draw the actual curve
-	 cont1x cont1y cont2x cont2y endx endy curveto
+ /cont2y exch def
+ /cont2x exch def
+ /cont1y exch def
+ /cont1x exch def
+ currentpoint
+ /orgy exch def
+ /orgx exch def
+ % got all points, fine, draw control lines
+ gsave
+	 % make dashed output, in some other color
+	 [ 7 3 ] 0 setdash
+	 ControlColor setrgbcolor
+	 % draw first control line
+	 cont1x cont1y lineto
+	 % draw second control line
+	 cont2x cont2y moveto
+	 endx endy lineto
 	 stroke
- } def
+ grestore
+ % draw the actual curve
+ cont1x cont1y cont2x cont2y endx endy curveto
+ stroke
+} def
 
 /med-logo
- { %def
-	 % semicircle
-	 Radius 90 160 semicircle
-	 % lower line segment
-	 /lowpoint { Radius 270 anglecoords } def
-	 
-	 lowpoint 20 sub moveto
-	 0 20 rlineto
-	 % spline 1
-         -10 -32
-	 -10 -21
-	 0 -10
-	 bezierto
-	 stroke
-	 % spline 2
-	 0 -10 moveto
-	 12 -2.5
-	 12 12.5
-	 0 20
-	 bezierto
-	 stroke
-	 % spline 3
-	 0 20 moveto
-	 -12 30
-	 -30 55
-	 0 60
-	 bezierto
-	 stroke
-	 0 60 moveto
-	 6.25 68.75 
-	 18.7 66.25
-	 25 55
-	 bezierto
-	 stroke
- } def
+{ %def
+ % semicircle
+ Radius 90 160 semicircle
+ % lower line segment
+ /lowpoint { Radius 270 anglecoords } def
+ 
+ lowpoint 20 sub moveto
+ 0 20 rlineto
+ % spline 1
+ -10 -32
+ -10 -21
+ 0 -10
+ bezierto
+ stroke
+ % spline 2
+ 0 -10 moveto
+ 12 -2.5
+ 12 12.5
+ 0 20
+ bezierto
+ stroke
+ % spline 3
+ 0 20 moveto
+ -12 30
+ -30 55
+ 0 60
+ bezierto
+ stroke
+ % spline 4
+ % coordinates calculated using a rotation matrix:
+ % / cos(α)  -sin(α) \ / x \
+ % \ sin(α)   cos(α) / \ y /
+ % with α = -12°
+ % and both control points 7 points above the baseline
+ 0 60 moveto
+ 7.57 65.55
+ 19.80 62.94
+ 24.45 54.80
+ bezierto
+ stroke
+} def
 
 % set the color of the strokes
 LineColor setrgbcolor
