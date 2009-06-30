@@ -295,8 +295,34 @@
 	 4 array astore
  } def
 
+% (matrix v w -- x y)
+/matrixmul
+ { %def
+	 /w exch def
+	 /v exch def
+	 aload pop
+	 /d exch def
+	 /c exch def
+	 /b exch def
+	 /a exch def
+	 a v mul b w mul add
+	 c v mul d w mul add
+ } def
+
+% (ox oy px py -- x y)
+/offset
+ { %def
+	 3 2 roll add
+	 3 1 roll add
+	 exch
+ } def
+
 /med-logo
 { %def
+	% some definitions
+	/matrix -12 rotationmatrix def
+	/offpoint { 0 60 } def
+
 	% semicircle
 	Radius 90 160 semicircle
 	% lower line segment
@@ -317,7 +343,7 @@
 	% curve 3
 	-12 30
 	-30 55
-	0 60
+	offpoint
 	bezierto
 	% curve 4
 	% coordinates calculated using a rotation matrix:
@@ -325,10 +351,16 @@
 	% \ sin(α)   cos(α) / \ y /
 	% with α = -12°
 	% and both control points 5 points above the baseline
-	7.15 63.59
-	19.37 60.99
-	24.45 54.80
+	%7.15 63.59
+	%19.37 60.99
+	%24.45 54.80
+	%bezierto
+
+	matrix 6.25 10 matrixmul offpoint offset
+	matrix 18.75 10 matrixmul offpoint offset
+	matrix 25 0 matrixmul offpoint offset
 	bezierto
+
 	stroke
 } def
 
