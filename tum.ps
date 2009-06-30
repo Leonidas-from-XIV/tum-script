@@ -282,21 +282,13 @@
 /rotationmatrix 
  { %def
 	 % calculate the d value
-	 dup
-	 cos
+	 dup cos
 	 % got d value, goto c
-	 exch
-	 dup
-	 sin
-	 -1
-	 mul
+	 exch dup sin -1 mul
 	 % got c value, goto b
-	 exch
-	 dup
-	 sin
+	 exch dup sin
 	 % got b value, goto a
-	 exch
-	 cos
+	 exch cos
 	 % a value, that's it
 
 	 % package them into a nifty array
