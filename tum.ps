@@ -384,31 +384,30 @@
 	/embiggen { multiplier mul exch multiplier mul exch } def
 	0 0 moveto
 
-	% steps to move to in the format { right up }
+	% steps to move to in the format [right up]
 	[
-		{ 1 0 }
-		{ 0 -5 }
-		{ 1 0 }
-		{ 0 5 }
-		{ 1 0 }
-		{ 0 -5 }
-		{ 3 0 }
-		{ 0 5 }
-		{ 1 0 }
-		{ 0 -5 }
-		{ 1 0 }
-		{ 0 5 }
-		{ 1 0 }
-		{ 0 -5 }
-		{ 1 0 }
-		{ 0 6 }
-		{ -5 0 }
-		{ 0 -5 }
-		{ -1 0 }
-		{ 0 5 }
-		{ -4 0 }
-
-	] { exec embiggen rlineto } forall
+		[1 0]
+		[0 -5]
+		[1 0]
+		[0 5]
+		[1 0]
+		[0 -5]
+		[3 0]
+		[0 5]
+		[1 0]
+		[0 -5]
+		[1 0]
+		[0 5]
+		[1 0]
+		[0 -5]
+		[1 0]
+		[0 6]
+		[-5 0]
+		[0 -5]
+		[-1 0]
+		[0 5]
+		[-4 0]
+	] { aload pop embiggen rlineto } forall
         % close the path and stroke it
 	closepath stroke
 } def
