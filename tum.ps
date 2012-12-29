@@ -5,6 +5,7 @@
 
 % the color (RGB) of the lines
 /TumLightColor [ 0 122 195 ] def
+/TumBlackColor { 0 0 0 } def
 % the color of debug drawings
 /ControlColor { [ 143 143 143 ] { 255 div } forall } def
 % divide each color by 255, since PS uses floats to represent colors
@@ -372,6 +373,36 @@
 	25 0 rotatedpoint
 	curveop
         % finally, draw the path
+	stroke
+} def
+
+/uni-logo
+{ %def
+	4 setlinewidth
+	0 0 moveto
+	20 0 rlineto
+	0 -100 rlineto
+	20 0 rlineto
+	0 100 rlineto
+	20 0 rlineto
+	0 -100 rlineto
+	60 0 rlineto
+	0 100 rlineto
+	20 0 rlineto
+	0 -100 rlineto
+	20 0 rlineto
+	0 100 rlineto
+	20 0 rlineto
+	0 -100 rlineto
+	20 0 rlineto
+	0 120 rlineto
+	-100 0 rlineto
+	0 -100 rlineto
+	-20 0 rlineto
+	0 100 rlineto
+	-80 0 rlineto
+	closepath
+
 	stroke
 } def
 
