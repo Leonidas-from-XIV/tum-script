@@ -378,32 +378,39 @@
 
 /uni-logo
 { %def
-	4 setlinewidth
+	/multiplier 20 def
+	multiplier 5 div setlinewidth
+	% (x y -- multix multiy)
+	/embiggen { multiplier mul exch multiplier mul exch } def
 	0 0 moveto
-	20 0 rlineto
-	0 -100 rlineto
-	20 0 rlineto
-	0 100 rlineto
-	20 0 rlineto
-	0 -100 rlineto
-	60 0 rlineto
-	0 100 rlineto
-	20 0 rlineto
-	0 -100 rlineto
-	20 0 rlineto
-	0 100 rlineto
-	20 0 rlineto
-	0 -100 rlineto
-	20 0 rlineto
-	0 120 rlineto
-	-100 0 rlineto
-	0 -100 rlineto
-	-20 0 rlineto
-	0 100 rlineto
-	-80 0 rlineto
-	closepath
 
-	stroke
+	% steps to move to in the format { right up }
+	[
+		{ 1 0 }
+		{ 0 -5 }
+		{ 1 0 }
+		{ 0 5 }
+		{ 1 0 }
+		{ 0 -5 }
+		{ 3 0 }
+		{ 0 5 }
+		{ 1 0 }
+		{ 0 -5 }
+		{ 1 0 }
+		{ 0 5 }
+		{ 1 0 }
+		{ 0 -5 }
+		{ 1 0 }
+		{ 0 6 }
+		{ -5 0 }
+		{ 0 -5 }
+		{ -1 0 }
+		{ 0 5 }
+		{ -4 0 }
+
+	] { exec embiggen rlineto } forall
+        % close the path and stroke it
+	closepath stroke
 } def
 
 % set the color of the strokes
