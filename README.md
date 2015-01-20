@@ -19,7 +19,7 @@ files which can be displayed by just about every PDF viewer and program that
 handles PDF:
 
 ```sh
-gs i-sDEVICE=pdfwrite -sOutputFile=output.tum.pdf -dBATCH -dNOPAUSE input.tum.ps
+gs -sDEVICE=pdfwrite -sOutputFile=output.tum.pdf -dBATCH -dNOPAUSE input.tum.ps
 ```
 
 License
